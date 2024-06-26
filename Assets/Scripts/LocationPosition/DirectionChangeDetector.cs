@@ -40,10 +40,10 @@ public class DirectionChangeDetector : MonoBehaviour
         Debug.Log("Filtered Angular Velocity: " + filteredAngularVelocity);
 
         // 사용자의 시선 방향이 크게 틀어졌는지 확인 (임계값 비교)
-        CheckForSignificantDirectionChange(filteredVelocity, filteredAngularVelocity);
+        CheckForDirectionChange(filteredVelocity, filteredAngularVelocity);
     }
 
-    private void CheckForSignificantDirectionChange(Vector3 velocity, Vector3 angularVelocity)
+    private void CheckForDirectionChange(Vector3 velocity, Vector3 angularVelocity)
     {
         // 예시 임계값 설정
         float velocityThreshold =1.0f;

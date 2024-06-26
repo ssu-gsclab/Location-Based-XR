@@ -22,11 +22,11 @@ public class LocationToPosition : MonoBehaviour
         ProximityChecker proximityChecker = FindObjectOfType<ProximityChecker>();
         if (proximityChecker == true)
         {
-            StartCoroutine(SetInitialHeadingAndPlaceObject());
+            StartCoroutine(SetInitialHeading());
         }
     }
 
-    IEnumerator SetInitialHeadingAndPlaceObject()
+    IEnumerator SetInitialHeading()
     {
         // 5초 대기
         yield return new WaitForSeconds(5);
@@ -36,10 +36,10 @@ public class LocationToPosition : MonoBehaviour
         Debug.Log("Initial heading set to: " + initialHeading);
 
         // 오브젝트 배치
-        PlaceObjectAtTargetLocation();
+        PlaceImageAtTargetLocation();
     }
 
-    void PlaceObjectAtTargetLocation()
+    void PlaceImageAtTargetLocation()
     {
         double referenceLatitude = gpsManager.latitude;
         double referenceLongitude = gpsManager.longitude;
@@ -61,7 +61,7 @@ public class LocationToPosition : MonoBehaviour
         Vector3 userPosition = new Vector3(0, 0, 0); // 기준점을 현재 위치로 설정
 
         // 방향을 계산하여 회전 적용
-        Quaternion rotation = SetDirection(userPosition, imagePosition);
+        Quaternion rotation = SetRotation(userPosition, imagePosition);
 
         // 오브젝트 배치
         Instantiate(arObjectPrefab, imagePosition, rotation); //rotation
@@ -75,7 +75,7 @@ public class LocationToPosition : MonoBehaviour
         return point; // 최종 회전된 point를 반환
     }
 
-    private Quaternion SetDirection(Vector3 userLocation, Vector3 imageLocation)
+    private Quaternion SetRotation(Vector3 userLocation, Vector3 imageLocation)
     {
         Vector3 direction = userLocation - imageLocation;
 
