@@ -429,6 +429,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 164003663310422664, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: _fingerFeatureStateProvider
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2483171112400622654, guid: f54012181eacade4ea242c65f804720f, type: 3}
       propertyPath: m_ClearFlags
       value: 2
@@ -1078,6 +1082,7 @@ GameObject:
   - component: {fileID: 605928995}
   - component: {fileID: 605928994}
   - component: {fileID: 605928997}
+  - component: {fileID: 605928998}
   m_Layer: 0
   m_Name: SetImage
   m_TagString: Untagged
@@ -1114,8 +1119,8 @@ MonoBehaviour:
   gpsManager: {fileID: 605928994}
   arObjectPrefab: {fileID: 9021766026303443320, guid: 44356220e03f25746b215cc5735608eb, type: 3}
   cameraRig: {fileID: 1044521055}
-  targetLatitude: 37.494992
-  targetLongitude: 126.96008
+  targetLatitude: 37.494844
+  targetLongitude: 126.959697
   earthRadius: 6371000
 --- !u!4 &605928996
 Transform:
@@ -1149,6 +1154,21 @@ MonoBehaviour:
   targetLatitude: 37.4947488
   targetLongitude: 126.9594388
   thresholdDistance: 150
+--- !u!114 &605928998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605928993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1665330f245a9d84fa4989eb760acac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hmdTransform: {fileID: 2011271195}
+  rotationThreshold: 30
+  velocityThreshold: 5
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,6 +1446,11 @@ MonoBehaviour:
   edgeRenderingEnabled_: 0
   edgeColor_: {r: 1, g: 1, b: 1, a: 1}
   colorMapType: 0
+--- !u!4 &2011271195 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1970769376806331313, guid: f54012181eacade4ea242c65f804720f, type: 3}
+  m_PrefabInstance: {fileID: 264537575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
